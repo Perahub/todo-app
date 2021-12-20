@@ -20,3 +20,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get('/todo', 'todoController@index')->name('todo');
+Route::post('/store-todo', 'todoController@store');
+Route::post('/complete-todo', 'todoController@complete');
+Route::post('/delete-todo', 'todoController@destroy');
+Route::post('/update-todo', 'todoController@update');

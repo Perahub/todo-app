@@ -1,0 +1,59 @@
+.blue{
+  background-color: blue!important;
+  color: white;
+}
+.orange{
+  background-color: orange!important;
+  color: white;
+}
+.green{
+  background-color: lightgreen!important;
+  color: white;
+}
+.red{
+  background-color: red!important;
+  color: white;
+}
+label{
+  font-weight: bold;
+}
+.swal_html, .swal_success{
+  font-weight: bold;
+  color: green;
+}
+.swal_error{
+  font-weight: bold;
+  color: red;
+}
+hr{
+  border-top: 5px solid white!important;
+}
+.todo-card-body{
+  min-height: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.done{
+  text-decoration: line-through;
+}
+.float_left{
+  float: left;
+}
+.float_right{
+  float: right;
+}
+.hidden{
+  display: none;
+}
