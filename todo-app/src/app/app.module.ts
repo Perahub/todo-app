@@ -7,10 +7,22 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// import { TodoItemComponent } from "./components/todo-item/todo-item.component";
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    // TodoItemComponent
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

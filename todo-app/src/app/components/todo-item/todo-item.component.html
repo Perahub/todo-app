@@ -1,0 +1,31 @@
+  <ion-item>
+    <ion-checkbox checked slot="start" [checked]="todo.isFinished"></ion-checkbox>
+    <ion-label>{{ todo.title }}</ion-label>
+    <ion-note slot="end">{{ todo.date | date }}</ion-note>
+
+    <ion-button (click)="openEdit()">
+      <ion-icon name="open"></ion-icon>
+    </ion-button>
+    <ion-button (click)="openEdit()">
+      <ion-icon name="create"></ion-icon>
+    </ion-button>
+    <ion-button (click)="deleteItem()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <!-- <ion-item-group>
+    <ion-list-header>Todo</ion-list-header>
+    <ion-item>
+      <ion-checkbox checked slot="start"></ion-checkbox>
+        <ion-label>Daenerys Targaryen</ion-label>
+        <ion-note slot="end">December 12, 2021</ion-note>
+      </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-list-header>Done</ion-list-header>
+    <ion-item>
+      <ion-checkbox checked slot="start"></ion-checkbox>
+        <ion-label>Daenerys Targaryen</ion-label>
+        <ion-note slot="end">December 12, 2021</ion-note>
+      </ion-item>
+  </ion-item-group> -->
