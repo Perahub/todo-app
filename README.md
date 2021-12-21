@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -64,3 +65,24 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+=======
+# Todo-App
+Create a todo app consist of `title`, `date of todo` and `is finished`.
+The other functionalities of the application are the following:
+
+ - Can create todo
+ - Can update todo
+ - Can fetch todo
+ - Can fetch all todos
+ - Can delete a specific todo
+ - Can delete all todos
+
+Also create a login page for the users in able to access the page. **Adding roles of the user is a big plus but not required**.
+
+**Instructions:**
+Clone or fork the repository and make a pull request after you finished the activity. Please answer these questions in the merge request details.
+
+ 1. Please elaborate the tech stacks used in this activity and why did you chose it?
+ 2. Did you used software design patterns, paradigms or best practices for developing this application? If yes, why did you used it?
+ 3. If you have an extra time, what features do you want to add?
+>>>>>>> a2c2911090ffb49b52ecbc81d958af47bd5147cf
