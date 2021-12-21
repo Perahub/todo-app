@@ -54,6 +54,6 @@ hr{
 .float_right{
   float: right;
 }
-.hidden{
+.hidden-element{
   display: none;
 }

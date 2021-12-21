@@ -204,6 +204,64 @@ $(".btn-delete, .btn-delete-all").on("click", function(){
 
 });
 
+$(".btn-assign").on("click", function(){
+
+  var todo_user = $(this).attr("data-id");
+
+  swal.fire({
+    title: "Assign Task",
+    html: "<b class='swal_html'>Are you sure you want to assign this task?</b>",
+    confirmButtonColor: 'lightgreen',
+    cancelButtonColor: 'red',
+    confirmButtonText: '<span style="color: white;">Proceed</span>',
+    cancelButtonText: '<span style="color: white;">Cancel</span>',
+    reverseButtons: true,
+    showCancelButton: true,
+  }).then((result) => {
+    if (result.value) {
+
+      var empty_field_count = 0;
+      var form = new FormData();
+
+      $(".required_fields_"+todo_user).each(function(){
+        if ($(this).val() == "") {
+          empty_field_count++;
+        }
+        else {
+          form.append($(this).attr("name"), $(this).val());
+        }
+      });
+
+      if (empty_field_count == 0) {
+        $.ajax({
+          type: "post",
+          url: "/assign-todo",
+          processData: false,
+          contentType: false,
+          cache: false,
+          data: form,
+          dataType: "json",
+          beforeSend: function(){
+            loader();
+          },
+          success: function(data){
+            setTimeout(function(){
+              if (data.status == "success") {
+                success();
+              }
+            }, 1500);
+          },
+        });
+      }
+      else {
+        emptyFields("required_fields_"+todo_user);
+      }
+
+    }
+  });
+
+});
+
 $(".todo-checkbox").on("click", function(){
   if ($(".todo-checkbox:checked").length >= 2) {
     $(".btn-delete-all").fadeIn();
@@ -251,3 +309,8 @@ function loader(){
     }
   });
 }
+
+
+$(document).ready( function () {
+  $('.datatable').DataTable();
+});

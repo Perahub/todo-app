@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Todo;
+use App\Models\User;
 use Auth;
 
 class todoController extends Controller
@@ -13,10 +14,12 @@ class todoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
 
-      $get_todos = Todo::orderBy("created_at", "desc")->get();
+      $get_user = Auth::user()->id;
+      $get_todos = Todo::where("user_id", $get_user)->orderBy("created_at", "desc")->get();
 
       return view("todo-views.index", compact("get_todos"));
     }
@@ -41,6 +44,30 @@ class todoController extends Controller
     {
       date_default_timezone_set('Asia/Manila');
       $get_user = Auth::user()->id;
+      $date = date("Y-m-d H:i:s");
+      $title = $request->todo_title;
+      $desc = $request->todo_desc;
+      $status = "active";
+
+      $insert[] = [
+        "created_at" => $date,
+        "title" => $title,
+        "description" => $desc,
+        "status" => $status,
+        "user_id" => $get_user,
+      ];
+
+      Todo::insert($insert);
+
+      return response()->json(array(
+        "status" => "success",
+      ));
+    }
+
+    public function assign(Request $request)
+    {
+      date_default_timezone_set('Asia/Manila');
+      $get_user = $request->todo_user;
       $date = date("Y-m-d H:i:s");
       $title = $request->todo_title;
       $desc = $request->todo_desc;

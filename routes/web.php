@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+    $get_role = Auth::user()->name;
+    $get_users = User::where("name", "user")->get();
+    return view('dashboard', compact("get_users", "get_role"));
+})->name('dashboard');
 
 Route::get('/todo', 'todoController@index')->name('todo');
 Route::post('/store-todo', 'todoController@store');
+Route::post('/assign-todo', 'todoController@assign');
 Route::post('/complete-todo', 'todoController@complete');
 Route::post('/delete-todo', 'todoController@destroy');
 Route::post('/update-todo', 'todoController@update');
