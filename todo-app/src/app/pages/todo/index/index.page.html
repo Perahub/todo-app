@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>ToDos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteTodos()">Delete all</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCreate()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-list
+            *ngIf="todos.length > 0 else noContent">
+            <app-todo-item
+              *ngFor="let todo of todos"
+              [todo]="todo"
+              (requestReload)="getTodos()"
+            ></app-todo-item>
+            <!-- <ion-item *ngFor="let todo of todos">
+              <ion-checkbox checked slot="start" [checked]="todo.isFinished"></ion-checkbox>
+              <ion-label>{{ todo.title }}</ion-label>
+              <ion-note slot="end">{{ todo.date | date }}</ion-note>
+              <ion-button>Edit</ion-button>
+              <ion-button>Delete</ion-button>
+            </ion-item> -->
+            <!-- <ion-item-group>
+              <ion-list-header>Todo</ion-list-header>
+              <ion-item>
+                <ion-checkbox checked slot="start"></ion-checkbox>
+                  <ion-label>Daenerys Targaryen</ion-label>
+                  <ion-note slot="end">December 12, 2021</ion-note>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+              <ion-list-header>Done</ion-list-header>
+              <ion-item>
+                <ion-checkbox checked slot="start"></ion-checkbox>
+                  <ion-label>Daenerys Targaryen</ion-label>
+                  <ion-note slot="end">December 12, 2021</ion-note>
+                </ion-item>
+            </ion-item-group> -->
+          </ion-list>
+          <ng-template #noContent>
+            Nothing to show
+          </ng-template>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

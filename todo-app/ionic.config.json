@@ -1,0 +1,7 @@
+{
+  "name": "perahub-todo-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
