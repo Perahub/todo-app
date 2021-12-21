@@ -1,7 +1,14 @@
   <ion-item>
-    <ion-checkbox checked slot="start" [checked]="todo.isFinished"></ion-checkbox>
-    <ion-label>{{ todo.title }}</ion-label>
-    <ion-note slot="end">{{ todo.date | date }}</ion-note>
+    <ion-checkbox
+      [(ngModel)]="todo.is_finished"
+      (ionChange)="updateitem()"
+      slot="start"
+    ></ion-checkbox>
+    <ion-label>
+      <h1>{{ todo.title }}</h1>
+      <ion-note>{{ todo.date | date }}</ion-note>
+    </ion-label>
+    
 
     <ion-button (click)="openEdit()">
       <ion-icon name="open"></ion-icon>

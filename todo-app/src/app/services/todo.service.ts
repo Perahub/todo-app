@@ -48,7 +48,7 @@ export interface ITodo {
   created_by: number
   title: string,
   date: string,
-  isFinished: boolean,
+  is_finished: boolean,
 }
 
 export class Todo implements ITodo {
@@ -56,12 +56,12 @@ export class Todo implements ITodo {
   created_by: number;
   title: string;
   date: string;
-  isFinished: boolean;
+  is_finished: boolean;
   constructor(obj: ITodo) {
     this.id = obj.id;
     this.created_by = obj.created_by;
     this.title = obj.title;
     this.date = obj.date;
-    this.isFinished = obj.isFinished;    
+    this.is_finished = obj.is_finished;    
   }
 }

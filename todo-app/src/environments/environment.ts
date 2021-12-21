@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  api: 'http://my-json-server.typicode.com/garfunkelvila/fake-json/'
+  // api: 'http://my-json-server.typicode.com/garfunkelvila/fake-json/'
   // api: 'https://jsonplaceholder.typicode.com/'
+  api: 'http://localhost:8000/'
 };
 
 /*

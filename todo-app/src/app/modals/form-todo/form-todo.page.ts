@@ -12,7 +12,7 @@ export class FormTodoPage implements OnInit {
     id: null,
     created_by: null,
     date: null,
-    isFinished: null,
+    is_finished: null,
     title: null
   });
   @Input() isNew: boolean = true;

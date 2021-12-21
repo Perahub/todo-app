@@ -13,6 +13,8 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: ITodo;
   @Output() requestReload = new EventEmitter<string>();
   modalForm: HTMLIonModalElement;
+
+  test: boolean;
   constructor(
     private modalController: ModalController,
     private alertController: AlertController,
@@ -27,7 +29,7 @@ export class TodoItemComponent implements OnInit {
     this.modalForm = await this.modalController.create({
       component: FormTodoPage,
       componentProps: {
-        'isNew' : true,
+        'isNew' : false,
         'model': this.todo
       }
     });
@@ -37,6 +39,15 @@ export class TodoItemComponent implements OnInit {
     if(data == true) {
       this.requestReload.emit();
     }
+  }
+  async updateitem() {
+    this.xhrTodo.upsertTodo(this.todo).subscribe(async () => {
+      const toast = await this.toastController.create({
+        message: `Todo sucesfully edited`,
+        duration: 2000
+      });
+      toast.present();
+    });
   }
 
   async deleteItem() {

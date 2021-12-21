@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 
 import { ITodo, TodoService } from "../../../services/todo.service";
 import { FormTodoPage } from "../../../modals/form-todo/form-todo.page";
@@ -12,7 +12,7 @@ import { FormTodoPage } from "../../../modals/form-todo/form-todo.page";
 export class IndexPage implements OnInit {
   isLoading: boolean = false;
   modalForm: HTMLIonModalElement;
-  todos: ITodo[];
+  todos: ITodo[] = [];
   public form = [
     { val: 'Pepperoni', isChecked: true },
     { val: 'Sausage', isChecked: false },
@@ -21,6 +21,8 @@ export class IndexPage implements OnInit {
   constructor(
     private xhrTodos: TodoService,
     private modalController: ModalController,
+    private toastController: ToastController,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -50,6 +52,32 @@ export class IndexPage implements OnInit {
     if(data == true) {
       this.getTodos();
     }
+  }
+
+  async deleteTodos() {
+    const alert = await this.alertController.create({
+      header: 'Are you sure?',
+      // subHeader: 'Subtitle',
+      message: `Delete all To Do?`,
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            return this.xhrTodos.deleteAllTodo().subscribe(async (e) => {
+              const toast = await this.toastController.create({
+                message: `Todo sucesfully deleted`,
+                duration: 2000
+              });
+              this.getTodos();
+            })
+          }
+        },{
+          text: 'No'
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }
