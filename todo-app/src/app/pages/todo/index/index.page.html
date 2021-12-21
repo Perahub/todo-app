@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ToDos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-list>
+            <ion-item-group>
+              <ion-list-header>Todo</ion-list-header>
+              <ion-item>
+                <ion-checkbox checked slot="start"></ion-checkbox>
+                  <ion-label>Daenerys Targaryen</ion-label>
+                  <ion-note slot="end">December 12, 2021</ion-note>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-group>
+              <ion-list-header>Done</ion-list-header>
+              <ion-item>
+                <ion-checkbox checked slot="start"></ion-checkbox>
+                  <ion-label>Daenerys Targaryen</ion-label>
+                  <ion-note slot="end">December 12, 2021</ion-note>
+                </ion-item>
+            </ion-item-group>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
