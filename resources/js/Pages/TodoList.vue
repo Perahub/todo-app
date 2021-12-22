@@ -35,7 +35,7 @@
                         </table>
                     </div>
                     <div class="main">
-                        <jet-button @click.stop="showDeleteAllModal" class="md-12 mx-2 px-4 py-2">Delete All</jet-button>
+                        <jet-button @click.stop="showDeleteAllModal" v-show="checkTodos" class="md-12 mx-2 px-4 py-2">Delete All</jet-button>
                         <jet-button @click.stop="StoreModal" class="md-12 px-4 py-2">Add To do</jet-button>
                     </div>
                 </div>
